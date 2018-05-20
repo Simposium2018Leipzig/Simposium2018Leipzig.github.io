@@ -1,0 +1,883 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Simposium 2018</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link rel="stylesheet" href="css/framework7.md.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/sights.css">
+
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <script src="leaflet/leaflet.js"></script>
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <!-- App root element -->
+    <div id="app">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+
+            <!-- Initial Page, "data-name" contains page name -->
+            <div data-name="home" class="page">
+
+                <!-- Toolbar -->
+                <div class="toolbar tabbar-labels toolbar-bottom-md">
+                    <div class="toolbar-inner">
+                        <!-- Toolbar links -->
+                        <a href="#tab-1" class="tab-link tab-link-active">
+                            <!-- <i class="icon material-icons">date_range</i> -->
+                            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                            </svg>                            
+                            <span class="tabbar-label">Доклады</span>
+                        </a>
+                        <a href="#tab-2" class="tab-link">
+                            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                            </svg>
+                            <span class="tabbar-label">Маршрут</span>
+                        </a>
+                        <a href="#tab-3" class="tab-link">
+                            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/>
+                            </svg>
+                            <span class="tabbar-label">Погода</span>
+                        </a>
+                        <a href="#tab-4" class="tab-link">
+                            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                            </svg>                            
+                            <span class="tabbar-label">Лейпциг</span>
+                        </a>
+                        <a href="#tab-5" class="tab-link">
+                            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/>
+                            </svg>
+                            <span class="tabbar-label">Словарь</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tabs-animated-wrap">
+                    <!-- Tabs -->
+                    <div class="tabs">
+
+                        <!-- First tab (Agenda), active -->
+                        <div class="page-content tab tab-active" id="tab-1">
+                            <!-- Additional "tabbar" class -->
+                            <div class="toolbar tabbar toolbar-top">
+                                <div class="toolbar-inner">
+                                    <!-- Links have "tab-link" class instead of just "link" to switch tabs -->
+                                    <a href="#tab-11" class="tab-link tab-link-active">
+                                        <span class="tabbar-week-day">Пн</span>
+                                        <span class="tabbar-day">28</span>
+                                    </a>
+                                    <a href="#tab-12" class="tab-link">
+                                        <span class="tabbar-week-day">Вт</span>
+                                        <span class="tabbar-day">29</span>
+                                    </a>
+                                    <a href="#tab-13" class="tab-link">
+                                        <span class="tabbar-week-day">Ср</span>
+                                        <span class="tabbar-day">30</span>
+                                    </a>
+                                    <a href="#tab-14" class="tab-link">
+                                        <span class="tabbar-week-day">Чт</span>
+                                        <span class="tabbar-day">31</span>
+                                    </a>
+                                    <a href="#tab-15" class="tab-link">
+                                        <span class="tabbar-week-day">Пт</span>
+                                        <span class="tabbar-day">01</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="tabs-animated-wrap">
+                                <!-- Tabs days -->
+                                <div class="tabs">
+                                    <!-- First day tab, active -->
+                                    <div class="page-content tab tab-active" id="tab-11" style="padding-bottom: 0;">
+                                    </div>
+                                    <!-- Second day tab -->
+                                    <div class="page-content tab" id="tab-12" style="padding-bottom: 0;">
+                                    </div>
+                                    <!-- Third day tab -->
+                                    <div class="page-content tab" id="tab-13" style="padding-bottom: 0;">
+                                    </div>
+                                    <!-- Fourth day tab -->
+                                    <div class="page-content tab" id="tab-14" style="padding-bottom: 0;">
+                                    </div>
+                                    <!-- Fifth day tab -->
+                                    <div class="page-content tab" id="tab-15" style="padding-bottom: 0;">
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+
+                        <!-- Second tab (Tickets) -->                    
+                        <div class="page-content tab" id="tab-2">
+                            <div class="itinerary">
+                                <div class="itinerary-header">
+                                    <div class="header-date">
+                                        <span>27</span>
+                                        <span class="header-date-month">мая, вс</span>
+                                    </div>
+                                    <div class="header-transport">
+                                        <img class="transport-logo" src="images/itinerary/UZ-logo.png" alt="UZ logo">
+                                        <img class="transport-logo" src="images/itinerary/UIA-text-logo.png" alt="UIA logo">
+                                        <img class="transport-logo" src="images/itinerary/DB-logo.svg" alt="DB logo">
+                                    </div>
+                                </div>
+
+                                <div class="itinerary-item">
+                                    <div class="itinerary-item-time">
+                                        <span class="time-start">00:07</span>
+                                        <span class="time-end">05:19</span>
+                                    </div>
+                                    <div class="time-line UZ">
+                                        <div class="time-line-start"></div>
+                                        <div class="time-line-end"></div>
+                                    </div>
+                                    <div class="itinerary-item-content">
+                                        <div>
+                                            <img class="transport-icon" src="images/icons/ic_directions_railway_UZ.svg"/>
+                                            <b>791 Д</b>
+                                        </div>
+                                        <div class="itinerary-item-from-to">
+                                            Кременчуг<br/>
+                                            Киев-Пассажирский
+                                        </div>
+                                        <div class="itinerary-item-duration">5ч 12мин</div>
+                                    </div>
+                                </div>
+
+                                <div class="itinerary-item">
+                                    <div class="itinerary-item-time"></div>
+                                    <div class="transfer-time-line"></div>
+                                    <div class="transfer-duration">4ч 6мин</div>
+                                </div>
+
+                                <div class="itinerary-item">
+                                    <div class="itinerary-item-time">
+                                        <span class="time-start">09:25</span>
+                                        <span class="time-end">10:35</span>
+                                    </div>
+                                    <div class="time-line UIA">
+                                        <div class="time-line-start"></div>
+                                        <div class="time-line-end"></div>
+                                    </div>
+                                    <div class="itinerary-item-content">
+                                        <div>
+                                            <img class="transport-icon" src="images/icons/ic_flight_UIA.svg"/>
+                                            <b>PS 423</b>
+                                        </div>
+                                        <div class="itinerary-item-from-to">
+                                            Киев (Борисполь)<br/>
+                                            Берлин (Тегель)
+                                        </div>
+                                        <a href="#" data-popup="#baggageInfo" class="button popup-open" style="height: 32px; margin-top: 12px;">БАГАЖ И РУЧНАЯ ПОКЛАЖА</a>                                    
+                                        <div class="itinerary-item-duration">2ч 10мин</div>
+                                    </div>
+                                </div>
+
+                                <div class="itinerary-item">
+                                    <div class="itinerary-item-time"></div>
+                                    <div class="transfer-time-line"></div>
+                                    <div class="transfer-duration">2ч 53мин</div>
+                                </div>
+
+                                <div class="itinerary-item">
+                                    <div class="itinerary-item-time">
+                                        <span class="time-start">13:28</span>
+                                        <span class="time-end">14:42</span>
+                                    </div>
+                                    <div class="time-line DB">
+                                        <div class="time-line-start"></div>
+                                        <div class="time-line-end"></div>
+                                    </div>
+                                    <div class="itinerary-item-content">
+                                        <div>
+                                            <img class="transport-icon" src="images/icons/ic_directions_railway_DB.svg"/>
+                                            <b>ICE 691</b>
+                                        </div>
+                                        <div class="itinerary-item-from-to">
+                                            Berlin Hbf [2]<br/>
+                                            Leipzig Hbf [11]
+                                        </div>
+                                        <div class="itinerary-item-duration">1ч 14мин</div>
+                                    </div>
+                                </div>
+
+                                <div class="itinerary-header">
+                                    <div class="header-date">
+                                        <span>02</span>
+                                        <span class="header-date-month">июня, сб</span>
+                                    </div>
+                                    <div class="header-transport">
+                                        <img class="transport-logo" src="images/itinerary/DB-logo.svg" alt="DB logo">
+                                    </div>
+                                </div>
+
+                                <div class="itinerary-item">
+                                    <div class="itinerary-item-time">
+                                        <span class="time-start">09:15</span>
+                                        <span class="time-end">10:30</span>
+                                    </div>
+                                    <div class="time-line DB">
+                                        <div class="time-line-start"></div>
+                                        <div class="time-line-end"></div>
+                                    </div>
+                                    <div class="itinerary-item-content">
+                                        <div>
+                                            <img class="transport-icon" src="images/icons/ic_directions_railway_DB.svg"/>
+                                            <b>ICE 696</b>
+                                        </div>
+                                        <div class="itinerary-item-from-to">
+                                            Leipzig Hbf [11]<br/>
+                                            Berlin Hbf [7]
+                                        </div>
+                                        <div class="itinerary-item-duration">1ч 15мин</div>
+                                    </div>
+                                </div>
+
+                                <div class="itinerary-header">
+                                    <div class="header-date">
+                                        <span>03</span>
+                                        <span class="header-date-month">июня, вс</span>
+                                    </div>
+                                    <div class="header-transport">
+                                        <img class="transport-logo" src="images/itinerary/UIA-text-logo.png" alt="UIA logo">
+                                    </div>
+                                </div>
+
+                                <div class="itinerary-item">
+                                    <div class="itinerary-item-time">
+                                        <span class="time-start">14:10</span>
+                                        <span class="time-end">17:20</span>
+                                    </div>
+                                    <div class="time-line UIA">
+                                        <div class="time-line-start"></div>
+                                        <div class="time-line-end"></div>
+                                    </div>
+                                    <div class="itinerary-item-content">
+                                        <div>
+                                            <img class="transport-icon" src="images/icons/ic_flight_UIA.svg"/>
+                                            <b>PS 424</b>
+                                        </div>
+                                        <div class="itinerary-item-from-to">
+                                            Берлин (Тегель)<br/>
+                                            Киев (Борисполь)
+                                        </div>
+                                        <a href="#" data-popup="#baggageInfo" class="button popup-open" style="height: 32px; margin-top: 12px;">БАГАЖ И РУЧНАЯ ПОКЛАЖА</a>
+                                        <div class="itinerary-item-duration">2ч 10мин</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Third tab (Weather) -->
+                        <div class="page-content tab" id="tab-3">
+                            <div class="weather-hero-wrapper">
+                                <img class="weather-hero" src="images/weather/weather-hero.png" alt="weather-hero">
+                            </div>
+
+                            <div class="current-day">
+                                <div id="current-day-temp"></div>
+                                <div id="current-day-date"></div>
+                                <div id="current-day-weather"></div>
+                                <!-- <span id="current-day-max-temp"></span>
+                                <span id="current-day-min-temp"></span> -->
+                            </div>
+
+                            <button class="button button-forecast-update" onclick="updateForecast();">Обновить</button>
+
+                            <div id="forecast-items">
+                                <div class="forecast-item-wrapper"></div>
+                                <div class="forecast-item-wrapper"></div>
+                                <div class="forecast-item-wrapper"></div>
+                                <div class="forecast-item-wrapper"></div>
+                                <div class="forecast-item-wrapper"></div>
+                            </div>
+                        </div>
+
+                        <!-- Fourth tab (Leipzig) -->
+                        <div class="page-content tab" id="tab-4">
+                            <div id="sights">
+                                <div class="sight-header">Где поработать</div>
+                                <div class="sight-item" data-sight-id="1" data-href="Cortex">
+                                    <img src="images/sights/small/Cortex.png" alt="Cortex" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        CORTEX Biophysik GmbH<br/>
+                                        <span class="site-item-address">Walter-Köhn-Str. 2d</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+
+                                <div class="sight-header">Где отдохнуть</div>
+                                <div class="sight-item" data-sight-id="2" data-href="Motel One">
+                                    <img src="images/sights/small/Motel One.png" alt="Motel One" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Отель Motel One<br/>
+                                        <span class="site-item-address">Motel One Leipzig-Nikolaikirche</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+
+                                <div class="sight-header">Что посмотреть</div>
+                                <div class="sight-item" data-sight-id="4" data-href="Market Square">
+                                    <img src="images/sights/small/Market Square.png" alt="Market Square" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Рыночная площадь<br/>
+                                        <span class="site-item-address">Marktplatz</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="5" data-href="Monument to the Battle of the Nations">
+                                    <img src="images/sights/small/Monument to the Battle of the Nations.png" alt="Monument to the Battle of the Nations" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Памятник Битве народов<br/>
+                                        <span class="site-item-address">Völkerschlachtdenkmal</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="6" data-href="Thomaskirche">
+                                    <img src="images/sights/small/Thomaskirche.png" alt="Thomaskirche" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Церковь Святого Фомы<br/>
+                                        <span class="site-item-address">Thomaskirche</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="7" data-href="Nikolaikirche">
+                                    <img src="images/sights/small/Nikolaikirche.png" alt="Nikolaikirche" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Церковь Святого Николая<br/>
+                                        <span class="site-item-address">Nikolaikirche</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="8" data-href="Panorama Tower">
+                                    <img src="images/sights/small/Panorama Tower.png" alt="Panorama Tower" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Panorama Tower<br/>
+                                        <span class="site-item-address">Panorama Tower</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="9" data-href="Auerbach's Keller">
+                                    <img src="images/sights/small/Auerbach's Keller.png" alt="Auerbach's Keller" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Ресторан «Погреб Ауэрбаха»<br/>
+                                        <span class="site-item-address">Auerbachs Keller</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="10" data-href="Leipzig Zoo">
+                                    <img src="images/sights/small/Leipzig Zoo.png" alt="Leipzig Zoo" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Лейпцигский зоопарк<br/>
+                                        <span class="site-item-address">Zoo Leipzig</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="11" data-href="Madlerpassage">
+                                    <img src="images/sights/small/Madlerpassage.png" alt="Madlerpassage" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Пассаж Медлера<br/>
+                                        <span class="site-item-address">Madlerpassage</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="12" data-href="Panometer Leipzig">
+                                    <img src="images/sights/small/Panometer Leipzig.png" alt="Panometer Leipzig" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Лейпцигский Панометр<br/>
+                                        <span class="site-item-address">Panometer Leipzig</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="13" data-href="Zum Arabischen Coffe Baum">
+                                    <img src="images/sights/small/Zum Arabischen Coffe Baum.png" alt="Zum Arabischen Coffe Baum" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Кафе «Цум арабишен кофе баум»<br/>
+                                        <span class="site-item-address">Zum Arabischen Coffe Baum</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+                                <div class="sight-item" data-sight-id="14" data-href="Museums">
+                                    <img src="images/sights/small/Museums.png" alt="Museums" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Музеи<br/>
+                                        <span class="site-item-address">Museen</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+
+                                <div class="sight-header">Где поспрашивать</div>
+                                <div class="sight-item" data-sight-id="15" data-href="Tourist-Information">
+                                    <img src="images/sights/small/Tourist-Information.png" alt="Tourist-Information" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                        Туристический информационный центр<br/>
+                                        <span class="site-item-address">Tourist-Information</span>
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+
+                                <div class="sight-header">Что привезти с собой</div>
+                                <div class="sight-item" data-sight-id="16" data-href="Presents">
+                                    <img src="images/sights/small/Presents.png" alt="Presents" class="sight-item-image">
+                                    <div class="sight-item-content">
+                                            Сувениры<br/>
+                                        <!-- <span class="site-item-address">Tourist-Information</span> -->
+                                    </div>
+                                    <div class="sight-item-button"></div>
+                                </div>
+
+                                <div class="sight-header">Центр города</div>
+                                <div id="cityCenterMap" style="width: 100%; height: 170px; padding-bottom: 20px;">
+                                    <img class="photo" src="images/sights/City center map.jpg" alt="City center map"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fifth tab (Dictionary) -->
+                        <div class="page-content tab" id="tab-5">
+                        <div class="toolbar toolbar-top" style="display: flex; align-items: center; padding-left: 10px;">
+                            <span style="font-size: 18px; font-weight: 300;">Основные слова и фразы на немецком</span>
+                        </div>
+                            <div class="list accordion-list"  style="padding-top: 49px; margin: 0;">
+                                <ul>
+                                    <li class="accordion-item accordion-item-opened">
+                                        <a href="#" class="item-content item-link">
+                                            <div class="item-inner">
+                                                <img class="dict-section-icon" src="images/icons/ic_group.svg">
+                                                <div class="item-title">Приветствия</div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="block">
+                                                <dl>
+                                                    <dt>Hello</dt>
+                                                    <dd>Hallo</dd>
+                                                    <dt>Good morning</dt>
+                                                    <dd>Guten Morgen</dd>
+                                                    <dt>Good day</dt>
+                                                    <dd>Guten Tag</dd>
+                                                    <dt>Good evening</dt>
+                                                    <dd>Guten Abend</dd>
+                                                    <dt>Good night</dt>
+                                                    <dd>Gute Nacht</dd>
+                                                    <dt>Goodbye</dt>
+                                                    <dd>Tschüss</dd>
+                                                    <dt>Bye</dt>
+                                                    <dd>Ciao</dd>
+                                                    <dt>Please</dt>
+                                                    <dd>Bitte</dd>
+                                                    <dt>Thank you</dt>
+                                                    <dd>Danke</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <a href="#" class="item-content item-link">
+                                            <div class="item-inner">
+                                                <img class="dict-section-icon" src="images/icons/ic_chat.svg">
+                                                <div class="item-title">Общие фразы</div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="block phrasebook-item">
+                                                На данный момент
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <a href="#" class="item-content item-link">
+                                            <div class="item-inner">
+                                                <img class="dict-section-icon" src="images/icons/ic_looks_one.svg">
+                                                <div class="item-title">Числа</div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="block phrasebook-item">
+                                                это всё!
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <a href="#" class="item-content item-link">
+                                            <div class="item-inner">
+                                                <img class="dict-section-icon" src="images/icons/ic_directions_bus.svg">
+                                                <div class="item-title">Транспорт</div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="block phrasebook-item">
+                                                Следите за дальнейшими
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <a href="#" class="item-content item-link">
+                                            <div class="item-inner">
+                                                <img class="dict-section-icon" src="images/icons/ic_restaurant.svg">
+                                                <div class="item-title">Еда</div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="block phrasebook-item">
+                                                обновлениями.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <a href="#" class="item-content item-link">
+                                            <div class="item-inner">
+                                                <img class="dict-section-icon" src="images/icons/ic_shopping_cart.svg">
+                                                <div class="item-title">В магазине</div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="block phrasebook-item">
+                                                А тут может быть
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item">
+                                        <a href="#" class="item-content item-link">
+                                            <div class="item-inner">
+                                                <img class="dict-section-icon" src="images/icons/ic_map.svg">
+                                                <div class="item-title">Как пройти</div>
+                                            </div>
+                                        </a>
+                                        <div class="accordion-item-content">
+                                            <div class="block phrasebook-item">
+                                                Ваша реклама.
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup-tablet-fullscreen" id="baggageInfo">
+            <div class="view">
+                <div class="page">
+                    <div class="toolbar toolbar-top" style="display: flex; align-items: center; padding-left: 10px;">
+                        <span style="font-size: 19px; font-weight: 300;">БАГАЖ І РУЧНА ПОКЛАЖА</span>                        
+                        <button class="button button-close popup-close"></button>
+                    </div>
+                    <div class="page-content" style="padding-top: 49px;">
+                        <div class="list accordion-list" style="margin: 0;">
+                            <ul>
+                                <!-- Ручна поклажа -->
+                                <!--accordion-item-opened-->
+                                <li class="accordion-item" style="background: #0063A4;">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title" style="color: #F9FBFD; text-transform: uppercase; font-weight: 300;">Ручна поклажа</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div style="background-color: #F3F7F6; margin: 0; padding: 16px;">
+                                            <p style="font-size: 1rem; font-weight: 600; text-align: center;">Максимальний розмір 1&nbsp;місця ручної поклажі:</p>
+                                            <div style="width: 100%; text-align: center;">
+                                                <span style="font-size: 2.5rem; font-weight: bold; color: #006cb7; line-height: 1.5rem; padding-bottom: 10px;">115</span>
+                                                <span style="font-size: 1.5em; line-height: .27; font-weight: bold; color: #006cb7; padding-bottom: 10px;">см</span>
+                                                <div style="margin-top: 8px; height: 18px; width: 100%; border-left: 2px solid #ccc; border-right: 2px solid #ccc;">
+                                                    <div style="height: 10px; width: 100%; border-bottom: 2px solid #ccc;">&nbsp;</div>
+                                                </div>
+                                                <img src="images/itinerary/baggage-sample.png" alt="baggage sample" style="max-width: 100%; margin-top: 20px;">
+                                            </div>
+                                            <div class="clearfix" style="margin-top: 20px;">
+                                                <div style="float: left; width: calc(100% - 60px);">Максимальна вага 1 місця ручної поклажі за маршрутом Україна&nbsp;-&nbsp;Німеччина для власників білетів категорії "Економічний клас" становить:</div>
+                                                <div style="float: right; width: 55px; margin-right: 5px; margin-top: 50px; text-align: right;">
+                                                    <span style="font-size: 2.5rem; font-weight: bold; color: #006cb7; line-height: 1.5rem; padding-bottom: 10px;">7</span>
+                                                    <span style="font-size: 1.5em; line-height: .27; font-weight: bold; color: #006cb7; padding-bottom: 10px;">кг</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Додатково до ручної поклажі -->
+                                <li class="accordion-item" style="background: #0063A4;">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title" style="color: #F9FBFD; text-transform: uppercase; font-weight: 300;">Додатково до ручної поклажі</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div style="background-color: #F3F7F6; margin: 0; padding: 16px;">
+                                            <p style="font-size: 1rem; font-weight: 600; text-align: center;">Додатково до основної ручної поклажі у салоні можна безкоштовно провезти:</p>
+                                            <ul class="blue-dots">
+                                                <li><span style="font-weight: bold;">1</span> дамську або чоловічу сумку;</li>
+                                                <li><span style="font-weight: bold;">1</span> невеликий фотоапарат або бінокль;</li>
+                                                <li><span style="font-weight: bold;">1</span> портативний персональний комп'ютер;</li>
+                                                <li>пресу для читання в польоті;</li>
+                                                <li><span style="font-weight: bold;">1</span> парасольку або тростину;</li>
+                                                <li><span style="font-weight: bold;">1</span> одиницю верхнього одягу;</li>
+                                                <li><span style="font-weight: bold;">1</span> пару милиць.</li>
+                                            </ul>
+                                            <p>Загальна вага вказаних предметів не повинна перевищувати <span style="font-weight: bold;">5</span> кг.</p>
+                                            <p>Більше інформації за <a href="https://www.flyuia.com/ua/ua/information/baggage/checked-and-hand#luggage">посиланням</a></p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Рідини в ручній поклажі -->
+                                <li class="accordion-item" style="background: #0063A4;">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title" style="color: #F9FBFD; text-transform: uppercase; font-weight: 300;">Рідини в ручній поклажі</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div style="background-color: #F3F7F6; margin: 0; padding: 16px;">
+                                            <p><span style="font-weight: bold;">Увага!</span> Подорожуючи з/через аеропорти ЄС, Великобританії, США, а також аеропорт Цюріха та "Бориспіль", слід враховувати обмеження щодо рідин та гелів у ручній поклажі.</p>
+                                            <!--<div style="margin: 0 -16px; height: 200px; background-color: white;"></div>-->
+                                            <div class="block EU" style="margin: 0 -16px; padding-top: 16px; background-color: white;">
+                                                <div class="clearfix">
+                                                    <img class="EU-flag" src="images/itinerary/EU-flag.PNG" alt="EU_flag">
+                                                    <div class="EU-Title">EU SECURITY RULES FOR LIQUIDS AT AIRPORTS</div>
+                                                </div>
+                                                <p>
+                                                    To protect you against the new threat of liquid explosives, the European Union (EU) has adopted security rules
+                                                    that restrict the amount of liquids that you can take through security checkpoints. They apply to all passengers
+                                                    departing from airports in the EU whatever their destination.
+                                                </p>
+                                                <p>
+                                                    This means that, at security checkpoints, you and your hand luggage must be checked for liquids in addition to
+                                                    other prohibited articles. However, the rules do not limit the liquids that you can buy at shops at EU airports located
+                                                    beyond the point where you show your boarding pass or on board an aircraft operated by an EU airline.
+                                                </p>
+                                                <p class="EU-attention">
+                                                    The rules apply at all airports in the EU and in Norway, Iceland and Switzerland.
+                                                </p>
+                                                <div class="EU-part-title">HOW TO COMPLY WITH THE RULES ?</div>
+                                                <p class="EU-subtitle">While packing</p>
+                                                <p>
+                                                    You are only allowed to take small quantities of liquids in your hand luggage. These liquids must be in individual
+                                                    containers with a maximum capacity of 100 millilitres each. You must pack these containers in one transparent,
+                                                    re-sealable plastic bag of not more than one litre capacity per passenger (see illustration below).
+                                                </p>
+                                                <img src="images/itinerary/liquid-bag.PNG" alt="liquid_bag">
+                                                <p class="EU-subtitle">At the airport</p>
+                                                <p class="EU-italic">To help screeners detect liquids, you must:</p>
+                                                <ul>
+                                                    <li>present all liquids carried to the screeners at security checkpoints for examination;</li>
+                                                    <li>take off your jacket and/or coat. They will be screened separately whilst you are screened;</li>
+                                                    <li>remove laptop computers and other large electrical devices from your hand luggage. They will be screened separately whilst you are screened.</li>
+                                                </ul>
+                                                <div class="liquids">
+                                                    <p class="EU-subtitle">Liquids include:</p>
+                                                    <ul>
+                                                        <li>water and other drinks</li>
+                                                        <li>soups, syrups</li>
+                                                        <li>creams, lotions and oils</li>
+                                                        <li>perfumes</li>
+                                                        <li>sprays</li>
+                                                        <li>gels, including hair and shower gels</li>
+                                                        <li>contents of pressurised containers, including shaving foam, other foams and deodorants</li>
+                                                        <li>pastes, including toothpaste</li>
+                                                        <li>liquid-solid mixtures</li>
+                                                        <li>mascara</li>
+                                                        <li>any other item of similar consistency</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="EU-part-title">TRANSFERRING TO A CONNECTING FLIGHT ?</div>
+                                                <p>
+                                                    Should you depart from an airport in a country outside the EU and then transfer to a connecting flight in the
+                                                    EU, you must respect the above rules on the quantities and packing of liquids. And you are not allowed to take
+                                                    on connecting flights liquids bought at airport shops in countries outside the EU.
+                                                </p>
+                                                <div class="EU-part-title">WHAT IS STILL POSSIBLE</div>
+                                                <span class="EU-italic">You can:</span>
+                                                <ul>
+                                                    <li>pack liquids in bags that you check in – the new rules only affect hand luggage;</li>
+                                                    <li>carry in your hand luggage medicines and dietary requirements, including baby foods, for use during the trip. You may be asked for proof that they are needed;</li>
+                                                    <li>buy liquids such as drinks and perfumes either in an EU airport shop when located beyond the point where you show your boarding pass or on board an aircraft operated by an EU airline. If they are sold in a special sealed bag, do not open it before you are screened – otherwise the contents may be confiscated at the checkpoint. (If you transfer at an EU airport, do not open the bag before screening at your airport of transfer, or at the last one if you transfer more than once).</li>
+                                                </ul>
+                                                <p>All these liquids are additional to the quantities in the re-sealable plastic bag mentioned above.</p>
+                                                <p class="EU-attention">If you have any doubts, please ask your airline or travel agent in advance of travel.</p>
+                                                <p class="EU-attention">Please be courteous and cooperate with airport security and airline staff.</p>
+                                                <p class="EU-footer">This document has been developed by the European Commission, the Association of European Airlines and Airports Council International Europe.</p>
+                                                <p class="EU-footer">Disclaimer: This document summarises for your information the main elements of the relevant EU legislation; it is not the actual legal text.</p>
+                                            </div>
+                                            <p>Більше інформації за <a href="https://www.flyuia.com/ua/ua/information/baggage/checked-and-hand#luggage">посиланням</a></p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Зареєстрований багаж -->
+                                <li class="accordion-item" style="background: #0063A4;">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title" style="color: #F9FBFD; text-transform: uppercase; font-weight: 300;">Зареєстрований багаж</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div style="background-color: #F3F7F6; margin: 0; padding: 16px;">
+                                            <!-- <p style="margin-top: 36px;">ЗАРЕЄСТРОВАНИЙ БАГАЖ</p> -->
+                                            <div style='content: " "; display: table; width: 100%;'>
+                                                <img src="images/itinerary/baggage.png" alt="baggage" style="max-width: 135px;float: right;">
+                                                <div style="float: right;width: calc(100% - 135px);">
+                                                    <p style="font-size: 1rem; font-weight: bold; margin-top: 0;">Максимальний розмір</p>
+                                                    <p>
+                                                        <span style="font-size: 2.5rem; font-weight: bold; color: #006cb7; line-height: 1.5rem; padding-bottom: 10px;">158</span>
+                                                        <span style="font-size: 1.5em; line-height: .27; font-weight: bold; color: #006cb7; padding-bottom: 10px;">cм</span>
+                                                    </p>
+                                                    <div>
+                                                        <p style="margin-top: 0; margin-bottom: 0;">висота +</p>
+                                                        <p style="margin-top: 0; margin-bottom: 0;">ширина +</p>
+                                                        <p style="margin-top: 0; margin-bottom: 0;">глибина</p>
+                                                    </div>
+                                                    <p style="font-size: 1rem; font-weight: bold;">Максимальнa вага</p>
+                                                    <p>
+                                                        <span style="font-size: 2.5rem; font-weight: bold; color: #006cb7; line-height: 1.5rem; padding-bottom: 10px;">23</span>
+                                                        <span style="font-size: 1.5em; line-height: .27; font-weight: bold; color: #006cb7; padding-bottom: 10px;">кг</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <p>Більше інформації за <a href="https://www.flyuia.com/ua/ua/information/baggage/checked-and-hand#baggage">посиланням</a></p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Небезпечні вантажі -->
+                                <li class="accordion-item" style="background: #0063A4;">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title" style="color: #F9FBFD; text-transform: uppercase; font-weight: 300;">Небезпечні вантажі</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div style="background-color: #F3F7F6; margin: 0; padding: 16px;">
+                                            <!-- <p style="margin-top: 36px;">НЕБЕЗПЕЧНІ ВАНТАЖІ</p> -->
+                                            <p style="font-size: 1rem; font-weight: 600; text-align: center; margin-top: 0;">Небезпечні предмети та речовини, заборонені для перевезення авіатранспортом</p>
+                                            <img style="margin: 0 0 1em 0;" src="images/itinerary/dangerous_goods.png" alt="dangerous goods">
+                                            <ul class="blue-dots">
+                                                <li><span style="font-weight: bold;">Ртутні барометри.</span></li>
+                                                <li><span style="font-weight: bold;">Їдкі матеріали:</span> кислоти, лужні елементи живлення.</li>
+                                                <li><span style="font-weight: bold;">Легкозаймисті речовини:</span> бензинові запальнички та підігрівачі, фарби, «бенгальські вогні».</li>
+                                                <li><span style="font-weight: bold;">Окислюючі матеріали та органічні кислоти.</span></li>
+                                                <li><span style="font-weight: bold;">Радіоактивні матеріали.</span></li>
+                                                <li><span style="font-weight: bold;">Інфекційні матеріали:</span> бактерії, живі віруси.</li>
+                                                <li><span style="font-weight: bold;">Магнетизовані матеріали.</span></li>
+                                                <li><span style="font-weight: bold;">Стиснуті гази:</span> глибоко охолодженні горючі, негорючі, отруйні, бутан, кисень, пропан, балони для аквалангів.</li>
+                                                <li><span style="font-weight: bold;">Аерозолі.</span></li>
+                                                <li><span style="font-weight: bold;">Вибухонебезпечні речовини:</span> феєрверки, петарди, сигнальні ракети, патрони.</li>
+                                                <li><span style="font-weight: bold;">Отруйні речовини:</span> інсектициди, гербіциди, миш'як, ціаніди.</li>
+                                                <li><span style="font-weight: bold;">Токсичні речовини:</span> відбілювачі, перекиси.</li>
+                                            </ul>
+                                            <p>Більше інформації за <a href="https://www.flyuia.com/ua/ua/information/baggage/dangerous#forbidden">посиланням</a></p>
+                                            <p>Перелік предметів <span style="font-weight: bold;">дозволених за певних умов</span> знаходиться за <a href="https://www.flyuia.com/ua/ua/information/baggage/dangerous#permitted">посиланням</a></p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <!-- Зброя та боєприпаси -->
+                                <li class="accordion-item" style="background: #0063A4;">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title" style="color: #F9FBFD; text-transform: uppercase; font-weight: 300;">Зброя та боєприпаси</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div style="background-color: #F3F7F6; margin: 0; padding: 16px;">
+                                            <!-- <p style="margin-top: 36px;">ЗБРОЯ ТА БОєПРИПАСИ</a></p> -->
+                                            <p style="font-size: 1rem; font-weight: 600; text-align: center; margin-top: 0;">Предмети, заборонені до перевезення в пасажирському салоні літака</p>
+                                            <ul class="blue-dots">
+                                                <li><span style="font-weight: normal;">Пристрої, які можуть випускати снаряди та викликати пошкодження</span></li>
+                                                <li><span style="font-weight: normal;">Холодна (колючо-ріжуча) зброя</span></li>
+                                                <li><span style="font-weight: normal;">Вибухові та горючі речовини, які належать до категорії небезпечних вантажів та перевозяться на літаках МАУ за відповідними правилами як вантаж</span></li>
+                                                <li><span style="font-weight: normal;">Хімічні та токсичні речовини</span></li>
+                                                <li><span style="font-weight: normal;">Інші колючо-ріжучі предмети, які можуть завдати пошкодження</span></li>
+                                                <li><span style="font-weight: normal;">Тупі предмети, які можуть нанести пошкодження</span></li>
+                                            </ul>
+                                            <p>Значно більше інформації за <a href="https://www.flyuia.com/ua/ua/information/baggage/firearms">посиланням</a></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup-tablet-fullscreen" id="sightInfo">
+            <div class="view">
+                <div class="page">
+                    <div class="content-container"></div> 
+                    <button class="button button-close popup-close"></button>  
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup-tablet-fullscreen" id="speakerInfo">
+            <div class="view">
+                <div class="page">
+                    <div style="width: 100%; height: 30px; line-height: 35px; padding-right: 10px; text-align: right; z-index: 500; background: white;">
+                        <a class="link popup-close" style="text-transform: uppercase;">Закрыть</a>
+                    </div>
+                    <div class="content-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup popup-tablet-fullscreen" id="dayForecast">
+            <div class="view">
+                <div class="page">
+                    <div class="content-container"></div> 
+                    <button class="button button-close popup-close"></button>  
+                </div>
+            </div>
+        </div>        
+
+    </div>
+
+    <div id="map-wrapper" style="width: 100vw; height: 100vh; top: 0; left: 0; position: absolute;">
+        <div id="map" style="position: absolute; width: 100vw; height: 100vh; z-index: -1; background-color: #F2EFE9;"></div>
+        <button class="button button-close" onclick="hideMap();"></button>
+    </div>
+
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+           console.log("Registering Service Worker");
+           navigator.serviceWorker.register('service-worker.js')
+              .then(function(reg) {
+                 console.log("Service Worker Registered");
+              }).catch(function(err) {
+                 console.log("Service Worker didn't Registered.", err)
+           });
+        }
+    </script> 
+</body>
+</html>
+
+ 

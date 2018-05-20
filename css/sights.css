@@ -1,0 +1,136 @@
+/* p {
+    margin: 12px 18px 12px 18px;
+    line-height: 1.6;
+} */
+
+.visible-map {
+    z-index: 12000;
+    /* display: block; */
+}
+
+.invisible-map {
+    display: none;
+}
+
+.photo-wrapper {
+    height: 220px;
+    width: 100%;
+    position: relative;
+}
+
+.photo {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.text-wrapper {
+    height: calc(100vh - 220px - 35px);
+    margin: 25px 0 10px 0;
+    overflow-y: scroll;
+}
+
+.place-title {
+    margin: 0 18px;
+    font-size: 22px;
+    font-family: Roboto;
+    font-weight: 300;
+    line-height: 33px;
+}
+
+.place-location {
+    position: relative;
+    margin: 20px 0 18px 0;
+    padding: 8px 18px 4px 43px;
+    color: #688098;
+    background: white;
+    font-size: 15px;
+}
+
+.place-location:before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    width: 20px;
+    height: 17px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background: url(../images/icons/location-mark.svg);
+}
+
+.place-location.showOnMap:after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+
+    background-size: 8px 13px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D'8px'%20height%3D'13px'%20viewBox%3D'0%200%208%2013'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpolygon%20fill%3D'%23c7c7cc'%20transform%3D'translate(1.500000%2C%206.500000)%20rotate(-45.000000)%20translate(-1.500000%2C%20-6.500000)%20'%20points%3D'6%2011%206%202%204%202%204%209%20-3%209%20-3%2011%205%2011'%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E");   
+}
+
+.location-text {
+    vertical-align: top;
+    margin-left: 3px;
+    color: #688098;
+}
+
+.place-description {
+    margin: 12px 18px 12px 18px;
+    line-height: 1.6;
+}
+
+.place-description-subtitle {
+    font-weight: 500;
+    margin: 25px 18px 0 18px;
+    font-size: 15px;
+}
+
+.place-link {
+    display: block;
+    margin: 2px 18px;
+    line-height: 1.6;
+    color: #2196f3;    
+    /* text-decoration: none; */
+    cursor: pointer;
+}
+
+.place-links, .place-navigation,
+.place-price, .place-work-hours {
+    position: relative;
+    margin: 20px 0 18px 0;
+    padding: 8px 18px 4px 43px;
+    background: white;
+    font-size: 15px;
+}
+
+.place-links:before, .place-navigation:before,
+.place-price:before, .place-work-hours:before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    width: 19px;
+    height: 19px;
+    background-size: 19px 19px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+}
+
+.place-links:before {
+    background: url(../images/icons/ic_bookmark.svg);
+}
+
+.place-navigation:before {
+    background: url(../images/icons/ic_near_me.svg);
+}
+
+.place-price:before {
+    background: url(../images/icons/ic_euro_symbol.svg);
+}
+
+.place-work-hours:before {
+    background: url(../images/icons/ic_access_time.svg);
+}

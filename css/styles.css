@@ -1,0 +1,659 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
+img {
+	box-sizing: content-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #3A4855;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+dl dt {
+    float: left;
+    min-width: 120px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+dl dd {
+    /* padding-left: 12px; */
+    margin-bottom: 5px;
+    /* font-style: italic; */
+}
+
+/* Agenda */
+
+.agenda {
+    overflow: scroll;
+}
+
+.agenda-header {
+    display: flex;
+    margin: 20px 18px;
+}
+
+.agenda-header-day {
+    flex-shrink: 0;
+    font-size: 19px;
+}
+
+.agenda-header-title {
+    margin-left: 12px;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+.report {
+    display: flex;
+    margin: 10px 18px;
+    padding: 8px 0 3px 0;
+    border-radius: 2px;
+    background: white;
+}
+
+.report-time {
+    width: 64px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    padding-right: 12px;
+    text-align: right;
+    font-size: 16px;
+    color: #3E71A1
+}
+
+.report-speaker {
+    width: 40px;
+    height: 40px;
+    margin: 8px 12px;
+    flex-shrink: 0;
+}
+
+.report-speaker.test {
+    width: 35px;
+    height: 100%;
+}
+
+.report-topic {
+    margin-top: 4px;
+    line-height: 1.25;
+}
+
+.report-duration {
+    margin-top: 3px;
+    font-size: 13px;
+    color: #A5B4C1;
+}
+
+.report-break {
+    background: transparent;
+}
+
+.report-break .report-time {
+    color: #8BCA41;
+}
+
+.report-icon {
+    width: 22px;
+    height: 22px;
+    margin: 2px 8px 0 2px;
+}
+
+.test-icon {
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin-bottom: 4px;    
+}
+
+/* Itinerary */
+
+.itinerary {
+    margin: 14px 0;
+}
+
+.itinerary-header {
+    width: 100%;
+    height: 34px;
+    margin: 30px 0 14px 0;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+}
+
+.itinerary-header:first-child {
+    margin: 0 0 14px 0;
+}
+
+.header-date {
+    margin-top: 3px;
+    color: #5A6E82;
+    font-size: 19px;
+}
+
+.header-date-month {
+    font-size: 16px;
+}
+
+.header-transport {
+    height: 20px;
+}
+
+.transport-logo {
+    height: 20px;
+    margin-right: 10px;
+}
+
+.itinerary-item {
+    margin: 0 18px;
+    display: flex;
+}
+
+.itinerary-item-time {
+    position: relative;
+    width: 50px;
+    flex-shrink: 0;
+}
+
+.time-start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 1;
+}
+
+.time-end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 1;
+}
+
+.time-line {
+    position: relative;   
+}
+
+.time-line:before {
+    position: absolute;
+    left: 2px;
+    top: 6px;
+    bottom: 6px;
+    border-width: 0 0 0 2px;
+    border-style: solid;
+    border-color: inherit;
+    content: "";
+}
+
+.time-line-start {
+    width: 6px;
+    height: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 50%;
+}
+
+.time-line-end {
+    position: absolute;
+    bottom: 0;
+    width: 6px;
+    height: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 50%;
+}
+
+.UZ {
+    border-color: #E5B856;
+}
+
+.UIA {
+    border-color: #3FA8D7;
+}
+
+.DB {
+    border-color: #FF6600;
+}
+
+.itinerary-item-content {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 0 2px 25px;
+}
+
+.transport-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 6px -5px -2px;
+}
+
+.itinerary-item-duration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 13px;
+    color: #A5B4C1;
+}
+
+.itinerary-item-from-to {
+    margin: 6px 0 0 0;
+    line-height: 1.35; 
+}
+
+.transfer-time-line {
+    margin-left: 3px;
+    border-width: 0 0 0 1px;
+    border-style: dashed;
+    border-color: #A5B4C1;
+}
+
+.transfer-duration {
+    margin: 10px 0 10px 18px;
+    font-size: 13px;
+    color: #A5B4C1;
+}
+
+.phrasebook-item {
+    text-align: center;
+    font-size: 16px;
+    color: #3E71A1;
+}
+
+
+/*EU SECURITY RULES FOR LIQUIDS AT AIRPORTS*/
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.EU {
+    color: #59595B;
+}
+
+.EU-attention {
+    color: #EE1E26;
+}
+
+.EU-flag {
+    max-width: 80px;
+    float: left;
+}
+
+.EU-Title {
+    margin-left: 100px;
+    font-weight: bold;
+    color: #0153A0;
+    font-size: 1.3em;
+}
+
+.EU-part-title {
+    color: white;
+    background: #0153A0;
+    text-align: center;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 25px 0 20px 0;
+}
+
+.EU-subtitle {
+    color: #59595B;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.EU-subtitle p {
+    margin-top: 0.5em;
+}
+
+.liquids {
+    border: 3px solid #0153A0;
+    border-radius: 5px;
+    padding: 0px 10px 0 10px;
+    color: #0153A0;
+}
+
+.liquids p {
+    color: #0153A0;
+}
+
+.EU-footer {
+    margin: 0;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.EU-italic {
+    font-style: italic;
+}
+
+
+/* UIA */
+
+ul.blue-dots {
+    margin-left: 15px;
+    padding: 0;
+}
+
+ul.blue-dots li {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+ul.blue-dots li:before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    background-color: #006cb7;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+
+/* Sights */
+
+.sight-header {
+    margin: 20px 18px 6px 18px;
+    font-size: 16px;
+}
+
+.sight-item {
+    display: flex;
+    height: 64px;
+    margin: 6px 18px 10px 18px;
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.sight-item-image {
+    width: 84px;
+    height: 64px;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.sight-item-content {
+    flex-grow: 1;
+    align-self: center;
+    margin-left: 14px;
+    pointer-events: none;
+}
+
+.site-item-address {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #A5B4C1;
+}
+
+.sight-item-button {
+    width: 20px;
+    flex-shrink: 0;
+    pointer-events: none;
+
+    background-size: 8px 13px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D'8px'%20height%3D'13px'%20viewBox%3D'0%200%208%2013'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpolygon%20fill%3D'%23c7c7cc'%20transform%3D'translate(1.500000%2C%206.500000)%20rotate(-45.000000)%20translate(-1.500000%2C%20-6.500000)%20'%20points%3D'6%2011%206%202%204%202%204%209%20-3%209%20-3%2011%205%2011'%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E");   
+}
+
+.md .button.button-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    min-width: 0;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 36px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L14,14 M14,0 L0,14" stroke="white" stroke-width="2"/></svg>');
+}
+
+
+/* Weather */
+
+.weather-hero-wrapper {
+    width: 100%;
+    height: 263px;
+    position: relative;
+}
+
+.weather-hero {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.current-day {
+    position: absolute;
+    right: 30px;
+    top: 22px;
+    text-align: right;
+    color: #4D5E6F;
+}
+
+#current-day-temp {
+    font-size: 55px;
+    font-weight: 300;
+    line-height: 55px;
+    margin-right: -4px;
+}
+
+#current-day-date {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #A5B4C1;
+}
+
+#current-day-weather {
+    margin-top: 2px;
+    font-size: 16px;
+}
+
+#current-day-min-temp {
+    font-size: 16px;
+}
+
+#current-day-max-temp {
+    font-size: 20px;
+}
+
+#current-day-max-temp:after {
+    content: " / ";
+    margin: 0 4px 0 0;
+}
+
+.md .button-forecast-update {
+    margin: 2px 0;
+}
+
+#forecast-items {
+    /* display: flex; */
+    height: calc(100% - 266px - 40px);
+    margin-top: 3px;
+}
+
+.forecast-item-wrapper {
+    display: flex;
+    align-items: center;
+    height: calc(20% - 3px);
+    margin-bottom: 3px;
+    background: white;
+}
+
+.forecast-item {
+    display: flex;
+    flex-grow: 1;
+    align-items: baseline;
+    margin-top: 2px;
+    font-size: 16px;
+}
+
+.forecast-item-day {
+    width: 55px;
+    padding-left: 18px;
+    font-size: 20px;
+    color: #E5B856;
+}
+
+.forecast-item-date {
+    color: #A5B4C1;
+    width: 63px;
+}
+
+.forecast-item-weather {
+    flex-grow: 1;
+}
+
+.forecast-item-min-temp {
+    min-width: 30px;
+    margin-right: 10px;
+    color: #A5B4C1;
+}
+
+.forecast-item-max-temp {
+    font-size: 20px;
+}
+
+.forecast-item-max-temp:after {
+    content: " / ";
+    margin: 0 4px 0 0;
+}
+
+.forecast-item-image-wrapper {
+    width: 90px;
+    height: 100%;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.forecast-item-image {
+    height: 100%;
+}
+
+.dict-section-icon {
+    width: 21px;
+    height: 21px;
+    margin-right: 12px;
+}
+
+
+svg {
+    fill: currentColor;
+}
+
+
+/* Restyle of Framework7 Library default material styles*/
+
+.md body {
+    font-family: Roboto, sans-serif;
+    color: #3A4855;
+}
+
+.md .block {
+    margin: 10px 0;
+    padding: 0 18px;
+}
+
+.md .page {
+    background: #F7F9FC;
+}
+
+.md .toolbar {
+    background: #4D5E6F;
+}
+
+.md .tabbar-labels a.tab-link.tab-link-active {
+    color: #3A4855;
+}
+
+.md .toolbar-bottom-md .tab-link-highlight {
+    height: 100%;    
+    background: rgb(251, 197, 0);
+}
+
+.md .tabbar-labels.toolbar-bottom-md .tabbar-label {
+    font-size: 13px;
+    line-height: 1;
+}
+
+.md .tabbar-labels a.tab-link {
+    color: white;
+}
+
+.md .tabbar .tab-link-highlight {
+    width: 36px;
+    background: rgb(251, 197, 0);
+}
+
+.tab-link.tab-link-active .tabbar-day {
+    color: rgb(251, 197, 0);
+}
+
+.md .toolbar.toolbar-top:after {
+    display: none;
+}
+
+.md .button {
+    background-color: #53B5E4;
+    color: white;    
+}
+
+.toolbar-top {
+    position: absolute;
+    top: 0;
+}
+
+.tabbar-week-day {
+    display: block;
+    text-transform: none;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.tabbar-day {
+    display: block;
+    font-size: 19px;
+    line-height: 1.2;
+    color: white;
+}
+
+.list .item-inner {
+    justify-content: start;
+}
+
+.accordion-item-content {
+    background-color: white;
+}
+
+
+/* Restyle of Leaflet Library default styles*/
+
+.leaflet-popup-content {
+    font-size: 14px;
+}

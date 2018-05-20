@@ -809,7 +809,7 @@ let currentDayWeather = document.getElementById('current-day-weather');
 let forecastItems = document.getElementById('forecast-items');
 
 let currentWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?id=2879139&units=metric&lang=ru&appid=0edeaf78778fd22815dc54272fe84dce';
-let fiveDaysForecastUrl = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=2879139&units=metric&lang=ru&appid=0edeaf78778fd22815dc54272fe84dce';
+let fiveDaysForecastUrl = 'https://api.openweathermap.org/data/2.5/forecast/daily?id=2879139&units=metric&lang=ru&appid=0edeaf78778fd22815dc54272fe84dce';
 
 function getDateString(dateTime) {
 	let dd = dateTime.getDate();
@@ -866,7 +866,7 @@ function loadFiveDaysForecast() {
 }
 
 function updateCurrentWeather(data) {
-	console.log(data);
+	//console.log(data);
 	currentDayTemp.textContent = Math.round(data.main.temp) + '°';
 	let date = new Date(data.dt*1000);
 	currentDayDate.textContent = `${getDateString(date)}, ${getDayString(date.getDay())}`;

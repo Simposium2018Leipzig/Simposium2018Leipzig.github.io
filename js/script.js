@@ -908,7 +908,7 @@ window.onload = function() {
 
 	let sightsElement = document.getElementById('sights');
 	if (sightsElement) {
-		sightsElement.addEventListener('click', () => {
+		sightsElement.addEventListener('click', (event) => {
 			let sightId = event.target.dataset.sightId;
 			if (sightId)
 				showSightPage(sightId);

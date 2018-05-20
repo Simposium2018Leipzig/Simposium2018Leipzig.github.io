@@ -246,7 +246,7 @@ function showMap(showCurrentSight = false) {
 		let sightMarker = currentSight.marker;
 		sightMarker.setIcon(redIcon);
 	}
-	history.pushState({}, 'Map', '?Map');
+	//history.pushState({}, 'Map', '?Map');
 }
 
 function hideMap() {

@@ -3,8 +3,8 @@
   "short_name": "Симпозиум 2018",
   "start_url": "/app.html",
   "display": "standalone",
-  "background_color": "#1A2225",
-  "theme_color": "#35AEE1",
+  "background_color": "#4D5E6F",
+  "theme_color": "#4D5E6F",
   "icons": [{
     "src": "images/icons/app/icon-48x48.png",
     "sizes": "48x48",

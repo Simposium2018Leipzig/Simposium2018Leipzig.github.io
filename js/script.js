@@ -583,7 +583,7 @@ const agenda = [
 				time: '09:45',
 				duration: 45,
 				speakerId: 7,
-				topic: 'Steps to make a new DO'
+				topic: 'Steps to make a new Report'
 			},
 			{
 				type: 'break',
@@ -596,7 +596,7 @@ const agenda = [
 				time: '10:45',
 				duration: 45,
 				speakerId: 3,
-				topic: 'The new Infragistics report tool – should we change MSS report technology?'
+				topic: 'Steps to make a new DO'
 			},
 			{
 				type: 'lecture',
